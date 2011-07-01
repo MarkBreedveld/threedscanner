@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="_3DScanner.LiveOverview.LiveMultiViewer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignWidth="714"
+             d:Height="Auto" Loaded="UserControl_Loaded">
+    <Border BorderThickness="2" BorderBrush="Black" CornerRadius="3" Width="698" Margin="5">
+        <DockPanel HorizontalAlignment="Stretch" 
+            VerticalAlignment="Stretch" 
+            Height="Auto" 
+               MinHeight="300"
+            MinWidth="680"
+            Margin="10"
+            Name="DockPanel">
+            <StackPanel Orientation="Vertical"  ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0,0,0,25" DockPanel.Dock="Top" Height="Auto" HorizontalAlignment="Left" Name="viewers" VerticalAlignment="Top" Width="670" >
+
+            </StackPanel>
+            <Button DockPanel.Dock="Bottom" Content="+ Kinect" Height="23" HorizontalAlignment="Left" Name="AddKinectButton" VerticalAlignment="Top" Click="AddKinectButton_Click" />
+        </DockPanel>
+    </Border>
+</UserControl>
