@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
-using xn;
+using OpenNI;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows;
@@ -52,7 +52,7 @@ namespace _3DScanner.Scanner
                     {
                         throw new Exception("3D Scanner must have a image node!");
                     }
-                    MapOutputMode mapMode = this.GDepth.GetMapOutputMode();
+                    MapOutputMode mapMode = this.GDepth.MapOutputMode;
                     configurated = true;
                 }
                 catch (Exception e)

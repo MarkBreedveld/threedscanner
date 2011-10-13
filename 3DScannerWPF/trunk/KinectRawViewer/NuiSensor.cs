@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Threading;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using xn;
+using OpenNI;
 
 namespace Nui
 {
@@ -104,7 +104,7 @@ namespace Nui
 
                     unsafe
                     {
-                        ushort* pDepth = (ushort*)DepthGenerator.GetDepthMapPtr().ToPointer();
+                        ushort* pDepth = (ushort*)DepthGenerator.DepthMapPtr.ToPointer();
                         for (int y = 0; y < _depthMD.YRes; ++y)
                         {
                             byte* pDest = (byte*)_depthBitmap.BackBuffer.ToPointer() + y * _depthBitmap.BackBufferStride;
@@ -210,7 +210,7 @@ namespace Nui
 
             ImageGenerator = Context.FindExistingNode(NodeType.Image) as ImageGenerator;
             DepthGenerator = Context.FindExistingNode(NodeType.Depth) as DepthGenerator;
-            Histogram = new int[DepthGenerator.GetDeviceMaxDepth()];
+            Histogram = new int[DepthGenerator.DeviceMaxDepth];
         }
 
         /// <summary>
@@ -224,7 +224,7 @@ namespace Nui
             Context = c;
             ImageGenerator = Context.FindExistingNode(NodeType.Image) as ImageGenerator;
             DepthGenerator = Context.FindExistingNode(NodeType.Depth) as DepthGenerator;
-            Histogram = new int[DepthGenerator.GetDeviceMaxDepth()];
+            Histogram = new int[DepthGenerator.DeviceMaxDepth];
         }
 
         /// <summary>
@@ -240,7 +240,7 @@ namespace Nui
             Context = c;
             ImageGenerator = ig;
             DepthGenerator = dg;
-            Histogram = new int[DepthGenerator.GetDeviceMaxDepth()];
+            Histogram = new int[DepthGenerator.DeviceMaxDepth];
         }
 
         /// <summary>
@@ -248,10 +248,10 @@ namespace Nui
         /// </summary>
         private void InitializeBitmaps()
         {
-            MapOutputMode mapMode = DepthGenerator.GetMapOutputMode();
+            MapOutputMode mapMode = DepthGenerator.MapOutputMode;
 
-            int width = (int)mapMode.nXRes;
-            int height = (int)mapMode.nYRes;
+            int width = (int)mapMode.XRes;
+            int height = (int)mapMode.YRes;
 
             _imageBitmap = new WriteableBitmap(width, height, DPI_X, DPI_Y, PixelFormats.Rgb24, null);
             _depthBitmap = new WriteableBitmap(width, height, DPI_X, DPI_Y, PixelFormats.Rgb24, null);

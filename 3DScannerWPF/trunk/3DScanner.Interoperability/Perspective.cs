@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using xn;
+using OpenNI;
 using System.Windows;
 
 //Het engelse gedeelte is code van kai

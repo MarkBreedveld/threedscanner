@@ -11,7 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using xn;
+using OpenNI;
 using KinectRawViewer;
 using _3DScanner.Interoperability;
 
@@ -103,7 +103,7 @@ namespace _3DScanner.LiveOverview
         {
             try
             {
-                xn.Context c = new Context();
+                Context c = new Context();
             }
             catch (Exception)
             {

@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3DScanner.MeshViewer", "3DS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3DScanner.ExporterPlyWriter", "3DScanner.ExporterPlyWriter\3DScanner.ExporterPlyWriter.csproj", "{70ABD240-9BF0-4F14-92E2-651B04E1F63A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF.Themes", "..\WPF.Themes\WPF.Themes.csproj", "{CD3CD636-D63E-4BD5-9FE9-2B63DA6F0616}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -171,6 +173,16 @@ Global
 		{70ABD240-9BF0-4F14-92E2-651B04E1F63A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{70ABD240-9BF0-4F14-92E2-651B04E1F63A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{70ABD240-9BF0-4F14-92E2-651B04E1F63A}.Release|x86.ActiveCfg = Release|Any CPU
+		{CD3CD636-D63E-4BD5-9FE9-2B63DA6F0616}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD3CD636-D63E-4BD5-9FE9-2B63DA6F0616}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD3CD636-D63E-4BD5-9FE9-2B63DA6F0616}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{CD3CD636-D63E-4BD5-9FE9-2B63DA6F0616}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{CD3CD636-D63E-4BD5-9FE9-2B63DA6F0616}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CD3CD636-D63E-4BD5-9FE9-2B63DA6F0616}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD3CD636-D63E-4BD5-9FE9-2B63DA6F0616}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD3CD636-D63E-4BD5-9FE9-2B63DA6F0616}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{CD3CD636-D63E-4BD5-9FE9-2B63DA6F0616}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{CD3CD636-D63E-4BD5-9FE9-2B63DA6F0616}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
