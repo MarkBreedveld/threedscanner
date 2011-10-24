@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+/*
+ * Opslag means storage!
+ * So this is the storage interface which has currently one implementation 
+ * The beeldopslag which translated means image storage.
+ * Storing the perspectives in a thread save way
+ */
 namespace _3DScanner.Interoperability
 {
     public sealed class BeeldOpslag : IOpslag
