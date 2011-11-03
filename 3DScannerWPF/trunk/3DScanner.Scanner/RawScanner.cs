@@ -17,6 +17,8 @@ namespace _3DScanner.Scanner
 {
     public class BeeldVerwerker
     {
+        private ScriptNode scriptNode;
+
         private static bool configurated;
         public static bool Configurated
         {
@@ -41,7 +43,8 @@ namespace _3DScanner.Scanner
             {
                 try
                 {
-                    this.context = new Context(Config);
+
+                    this.context = Context.CreateFromXmlFile(Config, out scriptNode);
                     this.GDepth = context.FindExistingNode(NodeType.Depth) as DepthGenerator;
                     this.GImage = context.FindExistingNode(NodeType.Image) as ImageGenerator;
                     if (this.GDepth == null)

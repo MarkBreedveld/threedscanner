@@ -180,39 +180,46 @@ namespace _3DScanner.Interoperability
         /// Geeft een array met rgb waarden
         /// Bestaande uit rood, groen en blue
         /// </summary>
-        private UInt16[] rgb;
+        private ushort[] rgb = new ushort[0];
         public unsafe UInt16[] Rgb
         {
 
             get
             {
-                lock (this)
+                // a image is usually not two pixels
+                if (this.rgb.Length < 2)
                 {
-                    if (rgb == null)
+                    lock (this.rgb)
                     {
-                        rgb = new ushort[XRes * YRes * 3];
-                        int i = 0;
-                        for (uint y = 0; y < _imgMD.YRes; ++y)
+                        lock (this.RawImageSource)
                         {
-                            for (uint x = 0; x < _imgMD.XRes; x++)
+                            this.rgb = new ushort[XRes * YRes * 3];
+                            int i = 0;
+                            for (uint y = 0; y < _imgMD.YRes; y++)
                             {
-                                // Get a pointer to the back buffer.
-                                uint pBackBuffer = (uint)((WriteableBitmap)RawImageSource).BackBuffer;
+                                for (uint x = 0; x < _imgMD.XRes; x++)
+                                {
+                                    // Get a pointer to the back buffer.
+                                    uint pBackBuffer = (uint)((WriteableBitmap)RawImageSource).BackBuffer;
 
-                                // Find the address of the pixel to draw.
-                                pBackBuffer += y * (uint)((WriteableBitmap)RawImageSource).BackBufferStride;
-                                pBackBuffer += x * 4;
+                                    // Find the address of the pixel to draw.
+                                    pBackBuffer += y * (uint)((WriteableBitmap)RawImageSource).BackBufferStride;
+                                    pBackBuffer += x * 4;
 
-                                byte* pCol = (byte*)pBackBuffer;
+                                    byte* pCol = (byte*)pBackBuffer;
 
-                                rgb[i] = pCol[2];
-                                rgb[i + 1] = pCol[1];
-                                rgb[i + 2] = pCol[0];
+                                    this.rgb[i] = pCol[2];
+                                    this.rgb[i + 1] = pCol[1];
+                                    this.rgb[i + 2] = pCol[0];
+                                    i += 3;
+                                }
                             }
                         }
                     }
-                    return rgb;
                 }
+                    
+                return rgb;
+                
             }
         }
 

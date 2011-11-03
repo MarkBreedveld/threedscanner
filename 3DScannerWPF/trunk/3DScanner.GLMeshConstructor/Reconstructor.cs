@@ -58,16 +58,16 @@ namespace _3DScanner.GLMeshConstructor
                                 yf = (float)y;
                                 zf = (float)e.Current.Depth[i];
                                 zf = -(1 / ((zf - 1091) / 355)); // convert depth to meters, see diagrams for details... 351=0.48m, 1080=32m, 1090=355m
-                                xf = (((xf - 320) / 320) * zf /** .5f*/); // perspective correction for X displacement of 57° FOV
-                                yf = ((yf - 240) / 240) * zf /** .4f*/; // perspective correction for Y TODO correction still needed
+                                xf = (((xf - 320) / 320) * zf); // perspective correction for X displacement of 57° FOV *.5f
+                                yf = ((yf - 240) / 240) * zf; // perspective correction for Y TODO correction still needed * .4f
                                 if (float.IsNaN(xf) || float.IsInfinity(xf) || xf < -100 || xf > 100) xf = 0;
                                 if (float.IsNaN(yf) || float.IsInfinity(yf) || yf < -100 || yf > 100) yf = 0;
                                 if (float.IsNaN(zf) || float.IsInfinity(zf) || zf < -100 || zf > 100) zf = 0;
                                 // store vertex coordinates]
                                 vertices[j] = new Vertex();
-                                vertices[j].Position = new Vector3(xf, yf, zf);
-                                vertices[j].RGBB = e.Current.Rgb[colorIndex + 2];
-                                vertices[j].RGBG = e.Current.Rgb[colorIndex + 1];
+                                vertices[j].Position = new Vector3(xf, -yf, -zf);
+                                vertices[j].RGBB = e.Current.Rgb[colorIndex + 1];
+                                vertices[j].RGBG = e.Current.Rgb[colorIndex + 2];
                                 vertices[j].RGBR = e.Current.Rgb[colorIndex];
                                 /*vertex[(y * 640 + x) * 3 + 0] = ;
                                 vertex[(y * 640 + x) * 3 + 1] = -yf;

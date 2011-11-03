@@ -6,7 +6,7 @@ using _3DScanner.Interoperability;
 
 namespace _3DScanner.Export
 {
-    public class Export
+    public class Export 
     {
         private LinkedList<Exporter> Exporters = new LinkedList<Exporter>();
 

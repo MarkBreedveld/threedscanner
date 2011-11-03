@@ -23,7 +23,7 @@ namespace _3DScanner.MeshViewer
     public partial class MeshView : UserControl,IMeshListener
     {
         IList<Mesh> meshes = new List<Mesh>();
-        
+        Thread t;
         public MeshView()
         {
             InitializeComponent();
@@ -75,6 +75,8 @@ namespace _3DScanner.MeshViewer
 
         private void ExportButton_Click(object sender, RoutedEventArgs e)
         {
+            string filename;
+            string extension;
             lock (this)
             {
                 if (ExportComboBox.SelectedIndex == -1)
@@ -83,13 +85,17 @@ namespace _3DScanner.MeshViewer
                 }
                 else
                 {
+                    filename = TargetTextBox.Text + DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Second;
+                    extension = ((Export.Exporter)ExportComboBox.SelectedItem).getExtension();
+                    Export.Exporter exporter = (Export.Exporter)ExportComboBox.SelectedItem;
                     LOG.Instance.publishMessage("START EXPORT TO " + ExportComboBox.SelectedItem.ToString());
                     LOG.Instance.publishMessage("This might take while, please wait till the ready message appears here.");
                     foreach (Mesh m in this.MeshGrid.SelectedItems)
                     {
-                        Config.InitConfig.Instance.Export.Exporteer((Export.Exporter)ExportComboBox.SelectedItem, m, TargetTextBox.Text + DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Second + "." +((Export.Exporter)ExportComboBox.SelectedItem).getExtension(), null);
+                        //Execute exporting into seperate thread
+                        t = new Thread(() => Config.InitConfig.Instance.Export.Exporteer(exporter, m, filename + "." + extension, null));
+                        t.Start();
                     }
-                    LOG.Instance.publishMessage("START EXPORT TO " + ExportComboBox.SelectedItem.ToString() + " DONE");
                 }
             }
         }

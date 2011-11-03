@@ -16,7 +16,18 @@ namespace _3DScanner.Interoperability
         }
         public Mesh(IList<Face> f,IList<Vertex> v){
             faces = f;
-            vertices = v;
+            long i = 0;
+            Vertex last;
+            vertices = new SortedList<Vertex, long>(new VertexCompare());
+            foreach(Vertex vertex in v){
+                //Remove double vertices
+                if (!vertices.ContainsKey(vertex))
+                {
+                    vertices.Add(vertex, i);
+                    i++;
+                    last = vertex;
+                }
+            }
         }
 
         IList<Face> faces;
@@ -26,8 +37,8 @@ namespace _3DScanner.Interoperability
             set { faces = value; }
         }
 
-        IList<Vertex> vertices;
-        public IList<Vertex> Vertices
+        SortedList<Vertex, long> vertices;
+        public SortedList<Vertex, long> Vertices
         {
             get { return vertices; }
             set { vertices = value; }

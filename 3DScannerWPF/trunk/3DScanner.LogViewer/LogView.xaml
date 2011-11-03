@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" Background="White">
     <Grid>
-        <TextBlock Height="259" HorizontalAlignment="Left" Margin="9,6,0,0" Name="logTextBlock" Text="" VerticalAlignment="Top" Width="283" Background="White" />
+        <TextBlock TextWrapping="Wrap" Height="259" HorizontalAlignment="Left" Margin="9,6,0,0" Name="logTextBlock" Text="" VerticalAlignment="Top" Width="283" Background="White" />
         <Button Content="Clear" Height="23" HorizontalAlignment="Left" Margin="11,272,0,0" Name="ClearButton" VerticalAlignment="Top" Width="277" Click="ClearButton_Click" />
         <Rectangle Height="294" HorizontalAlignment="Left" Margin="6,4,0,0" Name="rectangle1" Stroke="Black" VerticalAlignment="Top" Width="289" />
     </Grid>

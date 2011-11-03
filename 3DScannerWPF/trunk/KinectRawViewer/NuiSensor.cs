@@ -15,7 +15,7 @@ namespace Nui
     public class NuiSensor
     {
         #region Constants
-
+        private ScriptNode scriptNode;
         /// <summary>
         /// Default configuration file path.
         /// </summary>
@@ -201,11 +201,11 @@ namespace Nui
         {
             try
             {
-                Context = new Context(configuration);
+                Context = Context.CreateFromXmlFile(configuration, out scriptNode);
             }
-            catch
+            catch(Exception e)
             {
-                throw new Exception("Configuration file not found.");
+                throw new Exception("Configuration Error:" + e.Message + " - " +  e.InnerException + " - " +e.StackTrace);
             }
 
             ImageGenerator = Context.FindExistingNode(NodeType.Image) as ImageGenerator;

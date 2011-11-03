@@ -9,7 +9,7 @@ namespace Config
     public class InitConfig
     {
 
-        private string _CONFIG = @"C:\\Program Files (x86)\\OpenNI\\Data\\SamplesConfig.xml";
+        private string _CONFIG = @"C:\\Program Files\\OpenNI\\Data\\SamplesConfig.xml";
         public string CONFIG
         {
             get { lock (_CONFIG) { return _CONFIG; } }
@@ -30,7 +30,7 @@ namespace Config
             internal set { _Export = value; }
         }
 
-        private string _DefaultTarget = @"D:\\temp\\";
+        private string _DefaultTarget = @"C:\\temp\\";
         public string DefaultTarget
         {
             get { return _DefaultTarget; }
@@ -46,10 +46,10 @@ namespace Config
         {
         }
 
-        void LoadDefaultConfig()
+        /*void LoadDefaultConfig()
         {
             CONFIG = @"C:\\Program Files (x86)\\OpenNI\\Data\\SamplesConfig.xml";
-        }
+        }*/
 
         public static InitConfig Instance
         {
