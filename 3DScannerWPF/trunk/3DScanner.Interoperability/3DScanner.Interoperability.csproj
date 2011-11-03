@@ -107,6 +107,7 @@
     <Compile Include="IMeshListener.cs" />
     <Compile Include="LOG.cs" />
     <Compile Include="Mesh.cs" />
+    <Compile Include="PixelColor.cs" />
     <Compile Include="Quad.cs" />
     <Compile Include="Triangle.cs" />
     <Compile Include="Vertex.cs" />

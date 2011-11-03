@@ -6,6 +6,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using OpenNI;
 using System.Windows;
+using System.Runtime.InteropServices;
 
 //Het engelse gedeelte is code van kai
 //Maar omdat de code kris kras door de applicatie verdwijnt
@@ -174,6 +175,31 @@ namespace _3DScanner.Interoperability
                     else { throw new ArgumentException("Image resolution didn't match the depth resolution."); }
                 }
             }*/
+        }
+
+        private PixelColor[,] Pixels;
+        public PixelColor[,] CopyPixels()
+        {
+            lock (this)
+            {
+                if (this.Pixels == null)
+                {
+                    BitmapSource source = this._imageBitmap;
+                    if (source.Format != PixelFormats.Bgra32)
+                        source = new FormatConvertedBitmap(source, PixelFormats.Bgra32, null, 0);
+                    PixelColor[,] pixels = new PixelColor[source.PixelWidth, source.PixelHeight];
+                    int stride = source.PixelWidth * ((source.Format.BitsPerPixel + 7) / 8);
+                    GCHandle pinnedPixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
+                    source.CopyPixels(
+                      new Int32Rect(0, 0, source.PixelWidth, source.PixelHeight),
+                      pinnedPixels.AddrOfPinnedObject(),
+                      pixels.GetLength(0) * pixels.GetLength(1) * 4,
+                          stride);
+                    pinnedPixels.Free();
+                    Pixels = pixels;
+                }
+                return Pixels;
+            }
         }
 
         /// <summary>
