@@ -27,6 +27,7 @@
     <FeedbackEMailLinkText>Mark Breedveld</FeedbackEMailLinkText>
     <HelpTitle>3D Scanner Documentation by Sandcastle</HelpTitle>
     <ProductTitle>3D Scanner</ProductTitle>
+    <HelpFileFormat>HtmlHelp1, Website</HelpFileFormat>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in
        order for Visual Studio to perform the build.  The others are optional
