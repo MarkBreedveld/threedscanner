@@ -49,11 +49,36 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Win32' ">
   </PropertyGroup>
   <ItemGroup>
+    <Folder Include="system overview\" />
     <Folder Include="Quickstart\" />
     <Folder Include="Quickstart\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="878eac82-5a2a-4f20-82e2-754df5da1111.aml" />
+    <None Include="9fdd9012-73e7-4086-95e9-c187d33f2397.aml" />
+    <None Include="9e201227-f2de-4b71-9c07-ccce7bce2be6.aml" />
+    <None Include="341522ec-767b-4bb0-8879-68c2664cb271.aml" />
+    <None Include="2d9c69c8-70c5-4cff-af8e-c04db188119d.aml" />
+    <None Include="a986efb3-0f13-46e1-991c-882619e401d1.aml" />
+    <None Include="b7282951-63c9-4b54-ab75-c0ae06b5f948.aml" />
+    <None Include="3c9da004-38f0-4562-96f7-5c3f68e35a82.aml" />
+    <None Include="bb552a3e-edb4-439b-b0e6-24e038abf678.aml" />
+    <None Include="00882ccf-eddb-4df4-9a9d-41aab45d0fd7.aml" />
+    <None Include="6238432e-1ae4-4ab4-a8fb-4c50a1325846.aml" />
+    <None Include="7d941ec0-4562-45f9-b370-ef12c269d704.aml" />
+    <None Include="150537e1-b526-42ee-9636-da4e12e97187.aml" />
+    <None Include="69572d26-1342-465d-980d-f5a76639bd4a.aml" />
+    <None Include="fb256f97-92ae-432f-98b1-ec49e8b3204f.aml" />
+    <None Include="e0c2e916-9880-47a2-8d94-b3653ce2804f.aml" />
+    <None Include="system overview\64e68fe7-3dbc-4e5b-9f3e-971e397989d0.aml" />
+    <None Include="system overview\c4b978fa-a4fc-4646-bb6e-8a9160005733.aml" />
+    <None Include="system overview\2357012c-8751-498d-8556-72353b427959.aml" />
+    <None Include="Quickstart\337be9d8-0c9a-41b5-8eb7-4c4fa46f6a24.aml" />
+    <None Include="Quickstart\d4e6e87f-3dfc-4122-9cdb-e1f8916f6482.aml" />
     <None Include="Quickstart\QuickStart x64 with openni - ms kinect - 3D Scanner.aml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ContentLayout Include="Content Layout.content" />
   </ItemGroup>
   <!-- Import the SHFB build targets -->
   <Import Project="$(SHFBROOT)\SandcastleHelpFileBuilder.targets" />
